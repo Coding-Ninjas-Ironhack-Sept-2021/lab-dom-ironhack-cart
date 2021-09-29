@@ -1,14 +1,14 @@
 // ITERATION 1
 
-function updateSubtotal(product) {
+function updateSubtotal(productRow) {
 
   // get references to elements in the dom
-  const priceElm = document.querySelector(".price span"); //@todo: search inside "product" row, instead of "document"
-  const quantityElm = document.querySelector(".quantity input");
-  const subtotalElm = document.querySelector(".subtotal span");
+  const priceElm = productRow.querySelector(".price span");
+  const quantityElm = productRow.querySelector(".quantity input");
+  const subtotalElm = productRow.querySelector(".subtotal span");
 
   // calculate
-  const price = parseFloat(priceElm.innerHTML)
+  const price = parseFloat(priceElm.innerHTML);
   const quantity = parseFloat(quantityElm.value);
   const subtotal = price * quantity;
   
@@ -19,14 +19,10 @@ function updateSubtotal(product) {
 }
 
 function calculateAll() {
-  // code in the following two lines is added just for testing purposes.
-  // it runs when only iteration 1 is completed. at later point, it can be removed.
-  const singleProduct = document.querySelector('.product');
-  updateSubtotal(singleProduct);
-  // end of test
-
-  // ITERATION 2
-  //... your code goes here
+  const productList = document.querySelectorAll(".product");
+  productList.forEach(function(element){
+    updateSubtotal(element);
+  });
 
   // ITERATION 3
   //... your code goes here
