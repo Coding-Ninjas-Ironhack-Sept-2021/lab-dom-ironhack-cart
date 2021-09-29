@@ -19,13 +19,18 @@ function updateSubtotal(productRow) {
 }
 
 function calculateAll() {
+
+  let totalPrice = 0;
+
   const productList = document.querySelectorAll(".product");
   productList.forEach(function(element){
-    updateSubtotal(element);
+    const subtotalForThisProduct = updateSubtotal(element); 
+    totalPrice += subtotalForThisProduct;
   });
 
-  // ITERATION 3
-  //... your code goes here
+  const totalElm = document.querySelector("#total-value span");
+  totalElm.innerHTML = totalPrice;
+
 }
 
 // ITERATION 4
